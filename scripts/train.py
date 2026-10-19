@@ -5,9 +5,10 @@ import torch
 import sys
 import random
 import numpy as np
+from pathlib import Path
 
 # Ensure the src directory is in PYTHONPATH for imports
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

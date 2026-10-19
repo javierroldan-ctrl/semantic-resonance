@@ -15,6 +15,7 @@ from tokenizers.models import BPE
 from tokenizers.pre_tokenizers import Whitespace
 from tokenizers.trainers import BpeTrainer
 from tqdm import tqdm
+from pathlib import Path
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -289,4 +290,9 @@ if __name__ == '__main__':
     parser.add_argument("--config", type=str, default="configs/sra_wikitext103.yaml",
                         help="Path to the configuration YAML file.")
     args = parser.parse_args()
-    main(args.config)
+
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        config_path = Path(__file__).resolve().parent.parent / config_path
+
+    main(str(config_path))
