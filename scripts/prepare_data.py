@@ -242,10 +242,10 @@ def main(config_path):
             is_wikitext = True
             # Handle WikiText datasets
             if dataset_name_config == 'wikitext-103':
-                hf_dataset_name = "wikitext"
+                hf_dataset_name = "Salesforce/wikitext"
                 hf_config_name = "wikitext-103-raw-v1"
             elif dataset_name_config == 'wikitext-2':
-                hf_dataset_name = "wikitext"
+                hf_dataset_name = "Salesforce/wikitext"
                 hf_config_name = "wikitext-2-raw-v1"
             else:
                 logging.error(f"Unknown dataset name in config: {dataset_name_config}")
